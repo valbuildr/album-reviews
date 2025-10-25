@@ -1,3 +1,175 @@
 ---
-let { data } = Astro.props;
+// a file full of errors according to vscode... works perfectly
+
+import MainLayout from "../layouts/MainLayout.astro";
+import ListenOnGroup from "./ListenOnGroup.astro";
+import SongBySong from "./SongBySong.astro";
+import FinalScore from "./FinalScore.astro";
+import Markdown from "./Markdown.astro";
+
+import Rating from "./Rating.astro";
+
+let { album } = Astro.props;
 ---
+
+<MainLayout
+  title={`${album.meta.shortName ?? album.meta.name} by ${album.meta.artists[0]}`}
+  {...album.meta.colorOverrides}
+  favicon={album.meta.faviconOverride}
+>
+  <div class="flex gap-2 mb-2">
+    <a class="text-blue-800 dark:text-blue-300 hover:underline" href="/">Home</a
+    >
+    <p>•</p>
+    <p>Albums</p>
+    <p>•</p>
+    <p>{album.meta.artists[0]}</p>
+    <p>•</p>
+    <p class="font-bold">{album.meta.shortName ?? album.meta.name}</p>
+  </div>
+
+  {album.meta.draft && (
+    <div
+      class="border-2 border-white rounded text-white p-4 space-y-4 rounded-2xl h-fit my-4"
+      style={`background-color: ${album.meta.color}`}
+    >
+      <p class="text-xl"><span class="font-semibold">This review is a draft!</span> Expect things to change.</p>
+    </div>
+  )}
+
+  <div class="md:grid md:grid-cols-2 space-y-2 md:space-y-0 gap-2">
+    <div class="space-y-2">
+    <div
+      class="border-2 border-white rounded text-white p-4 space-y-4 rounded-2xl h-fit"
+      style={`background-color: ${album.meta.color}`}
+    >
+      <div class="sm:flex sm:gap-2 items-end">
+        <h2 class="font-bold text-4xl">
+          {album.meta.shortName ?? album.meta.name}
+        </h2>
+        <p class="font-normal text-2xl">by {album.meta.artists.join(", ")}</p>
+      </div>
+
+      <img class="w-96 rounded-lg mb-4" src={album.meta.cover} />
+
+      <ListenOnGroup {...album.meta.links} />
+
+      <hr class="border-white/50" />
+
+      <div class="space-y-2">
+        {
+          Object.entries(album.songs).map(([id, song]) => (
+            <Rating
+              name={song.name}
+              color={album.meta.color}
+              rating={song.rating}
+              duration={song.duration}
+              explicit={song.isExplicit}
+              type={song.type}
+            />
+          ))
+        }
+      </div>
+
+      <hr class="border-white/50" />
+
+      <div class="flex items-center gap-2">
+        {
+          album.meta.hasInterludes && (
+            <div class="flex gap-1 items-center">
+              <div class="h-4 w-4 bg-light-purple/50 rounded-full">
+                <div class="h-4 w-2 bg-light-purple rounded-l-full" />
+              </div>
+              <p>Interlude</p>
+            </div>
+
+            <div class="border-l border-white/50 h-4"></div>
+          )
+        }
+
+        <div class="flex gap-1 items-center">
+          <div class="h-4 w-4 bg-light-yellow/50 rounded-full">
+            <div class="h-4 w-2 bg-light-yellow rounded-l-full"></div>
+          </div>
+          <p>Hidden Gem</p>
+        </div>
+
+        <div class="border-l border-white/50 h-4"></div>
+
+        <div class="flex gap-1 items-center">
+          <div class="h-4 w-4 bg-light-green/50 rounded-full">
+            <div class="h-4 w-2 bg-light-green rounded-l-full"></div>
+          </div>
+          <p>Single</p>
+        </div>
+
+        {
+          album.meta.hasInterludes && (
+            <div class="border-l border-white/50 h-4"></div>
+
+            <div class="flex gap-1 items-center">
+              <div class="h-4 w-4 bg-light-red/50 rounded-full">
+                <div class="h-4 w-2 bg-light-red rounded-l-full" />
+              </div>
+              <p>Bonus</p>
+            </div>
+          )
+        }
+      </div>
+
+      <p class="text-sm italic">Released on {album.meta.released}.</p>
+    </div>
+
+    <div
+      class="sm:col-span-2 border-2 border-white rounded text-white p-4 space-y-4 rounded-2xl h-fit"
+      style={`background-color: ${album.meta.color}`}
+    >
+      <h2 class="font-bold text-4xl">Credits and Notes</h2>
+
+      {Object.values(album.credits).map((credit, index) => (<div id={`source-${index + 1}`}><Markdown content={`${index + 1}: ${credit}`} /></div>))}
+    </div>
+    </div>
+
+    <div class="space-y-2">
+      <!-- TODO: Programmatically get final score -->
+      <FinalScore score={Object.values(album.songs).map(song => song.rating).reduce((sum, rating) => sum + rating, 0)} maxScore={Object.keys(album.songs).length * 10} color={album.meta.color} textColor={album.meta.textColor} />
+
+      <div
+        class="border-2 border-white rounded text-white p-4 rounded-2xl h-fit space-y-2 text-lg"
+        style={`background-color: ${album.meta.color}; color: ${album.meta.textColor}`}
+        id="thoughts"
+      >
+        <h2 class="font-bold text-4xl">Thoughts</h2>
+        <p class="text-sm italic">Published {album.thoughts.published}.</p>
+        <div class="space-y-4">
+          <Markdown content={album.thoughts.content} />
+        </div>
+      </div>
+
+      <div class="space-y-2 bg-black/25 rounded-2xl">
+        {
+          Object.entries(album.songs).map(([id, song]) => (
+            <SongBySong
+              {id}
+              name={song.name}
+              color={album.meta.color}
+              rating={song.rating}
+              duration={song.duration}
+              links={song.links}
+              explicit={song.isExplicit}
+              isStart={id == Object.keys(album.songs)[0]}
+              isEnd={id == Object.keys(album.songs).pop()}
+              textColor={album.meta.textColor}
+              type={song.type}
+            >
+              <Markdown content={song.thoughts} />
+              {album.meta.released != song.released && (
+                <p class="text-sm italic">Released on {song.released}.</p>
+              )}
+            </SongBySong>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</MainLayout>
