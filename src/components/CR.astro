@@ -1,0 +1,110 @@
+---
+import Markdown from "./Markdown.astro";
+
+interface Props {
+  src: string;
+  data: {
+    width: number;
+    height: number;
+    author: string;
+    purpose: string;
+    notReplaceableBecause: string;
+    minimalUse: string;
+    respectForCommercial: string;
+    added: string;
+  };
+}
+
+const { src, data } = Astro.props;
+---
+
+<div
+  class="p-4 border border-black/50 dark:border-white/50 rounded-lg space-y-4"
+>
+  <h3 class="font-bold text-md sm:text-2xl">
+    <a href={src}>{src}</a>
+  </h3>
+
+  <div class="w-[300px]">
+    <a href={src}>
+      <img {src} height={`${data.width}px`} width={`${data.height}px`} />
+    </a>
+    <p class="text-sm mt-2 text-center italic">300x300 px</p>
+  </div>
+
+  <div class="block">
+    <div class="sm:flex w-full">
+      <div
+        class="bg-purple-300/50 dark:bg-purple-600/25 p-3 border border-b-0 dark:border-white font-bold sm:w-1/4"
+      >
+        Author or copyright owner
+      </div>
+      <div
+        class="p-3 border sm:border-l-0 border-b-0 dark:border-white sm:w-3/4"
+      >
+        <Markdown content={data.author} />
+      </div>
+    </div>
+    <div class="sm:flex w-full">
+      <div
+        class="bg-purple-300/50 dark:bg-purple-600/25 p-3 border border-b-0 dark:border-white font-bold sm:w-1/4"
+      >
+        Purpose of use
+      </div>
+      <div
+        class="p-3 border sm:border-l-0 border-b-0 dark:border-white sm:w-3/4"
+      >
+        <Markdown content={data.purpose} />
+      </div>
+    </div>
+    <div class="sm:flex w-full">
+      <div
+        class="bg-purple-300/50 dark:bg-purple-600/25 p-3 border border-b-0 dark:border-white font-bold sm:w-1/4"
+      >
+        Not replaceable with free media because
+      </div>
+      <div
+        class="p-3 border sm:border-l-0 border-b-0 dark:border-white sm:w-3/4"
+      >
+        <Markdown content={data.notReplaceableBecause} />
+      </div>
+    </div>
+    <div class="sm:flex w-full">
+      <div
+        class="bg-purple-300/50 dark:bg-purple-600/25 p-3 border border-b-0 dark:border-white font-bold sm:w-1/4"
+      >
+        Minimal use/Where it's used<span
+          title="(excluding this page)"
+          class="underline decoration-dotted">*</span
+        >
+      </div>
+      <div
+        class="p-3 border sm:border-l-0 border-b-0 dark:border-white sm:w-3/4"
+      >
+        <Markdown content={data.minimalUse} />
+      </div>
+    </div>
+    <div class="sm:flex w-full">
+      <div
+        class="bg-purple-300/50 dark:bg-purple-600/25 p-3 border border-b-0 dark:border-white font-bold sm:w-1/4"
+      >
+        Respect for commercial opportunities
+      </div>
+      <div
+        class="p-3 border sm:border-l-0 border-b-0 dark:border-white sm:w-3/4"
+      >
+        <Markdown content={data.respectForCommercial} />
+      </div>
+    </div>
+    <div class="sm:flex w-full">
+      <div
+        class="bg-purple-300/50 dark:bg-purple-600/25 p-3 border border-b-0 sm:border-b-1 dark:border-white font-bold sm:w-1/4"
+      >
+        Added
+      </div>
+      <div class="p-3 border sm:border-l-0 dark:border-white sm:w-3/4">
+        <Markdown content={data.added} />
+      </div>
+    </div>
+  </div>
+</div>

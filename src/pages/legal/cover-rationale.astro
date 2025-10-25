@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import CR from "../../components/CR.astro";
 ---
 
 <MainLayout title="Copyright">
@@ -12,90 +13,33 @@ import MainLayout from "../../layouts/MainLayout.astro";
     <p class="font-bold">Cover Art Rationale</p>
   </div>
 
-  <div
-    class="p-4 border border-black/50 dark:border-white/50 rounded-lg space-y-4"
-  >
-    <h3 class="font-bold text-md sm:text-2xl">
-      <a href="/assets/albums/laufey/amot/cover.png"
-        >/assets/albums/laufey/amot/cover.png</a
-      >
-    </h3>
+  <div class="space-y-2">
+    <CR
+      src="/assets/albums/laufey/amot/cover.png"
+      data={{
+        width: 300,
+        height: 300,
+        author: "Laufey",
+        purpose: "to serve as the primary means of visual identification at the top of the page dedicated to *A Matter of Time*.",
+        notReplaceableBecause: "Any derivative work based upon the cover art would be a copyright violation, so creation of a free image is not possible.",
+        minimalUse: "Top of the page for *A Matter of Time*.",
+        respectForCommercial: "The use of a low resolution image of a work's cover will not impact the commercial viability of the work.",
+        added: "October 24th, 2025",
+      }}
+    />
 
-    <div class="w-[300px]">
-      <a href="/assets/albums/laufey/amot/cover.png">
-        <img
-          src="/assets/albums/laufey/amot/cover.png"
-          height="300px"
-          width="300px"
-        />
-      </a>
-      <p class="text-sm mt-2 text-center italic">300x300 px</p>
-    </div>
-
-    <div class="block">
-      <div class="sm:flex w-full">
-        <div
-          class="bg-purple-300/50 dark:bg-purple-600/25 p-3 border border-b-0 dark:border-white font-bold sm:w-1/4"
-        >
-          Author or copyright owner
-        </div>
-        <div class="p-3 border sm:border-l-0 border-b-0 dark:border-white sm:w-3/4">
-          Laufey
-        </div>
-      </div>
-      <div class="sm:flex w-full">
-        <div
-          class="bg-purple-300/50 dark:bg-purple-600/25 p-3 border border-b-0 dark:border-white font-bold sm:w-1/4"
-        >
-          Purpose of use
-        </div>
-        <div class="p-3 border sm:border-l-0 border-b-0 dark:border-white sm:w-3/4">
-          to serve as the primary means of visual identification at the top of
-          the page dedicated to <i>A Matter of Time</i>.
-        </div>
-      </div>
-      <div class="sm:flex w-full">
-        <div
-          class="bg-purple-300/50 dark:bg-purple-600/25 p-3 border border-b-0 dark:border-white font-bold sm:w-1/4"
-        >
-          Not replaceable with free media because
-        </div>
-        <div class="p-3 border sm:border-l-0 border-b-0 dark:border-white sm:w-3/4">
-          Any derivative work based upon the cover art would be a copyright
-          violation, so creation of a free image is not possible.
-        </div>
-      </div>
-      <div class="sm:flex w-full">
-        <div
-          class="bg-purple-300/50 dark:bg-purple-600/25 p-3 border border-b-0 dark:border-white font-bold sm:w-1/4"
-        >
-          Minimal use/Where it's used<span title="(excluding this page)" class="underline decoration-dotted">*</span>
-        </div>
-        <div class="p-3 border sm:border-l-0 border-b-0 dark:border-white sm:w-3/4">
-          Top of the page for <i>A Matter of Time</i>.
-        </div>
-      </div>
-      <div class="sm:flex w-full">
-        <div
-          class="bg-purple-300/50 dark:bg-purple-600/25 p-3 border border-b-0 dark:border-white font-bold sm:w-1/4"
-        >
-          Respect for commercial opportunities
-        </div>
-        <div class="p-3 border sm:border-l-0 border-b-0 dark:border-white sm:w-3/4">
-          The use of a low resolution image of a work's cover will not impact
-          the commercial viability of the work.
-        </div>
-      </div>
-      <div class="sm:flex w-full">
-        <div
-          class="bg-purple-300/50 dark:bg-purple-600/25 p-3 border border-b-0 sm:border-b-1 dark:border-white font-bold sm:w-1/4"
-        >
-          Added
-        </div>
-        <div class="p-3 border sm:border-l-0 dark:border-white sm:w-3/4">
-          October 24th, 2025
-        </div>
-      </div>
-    </div>
+    <CR
+      src="/assets/albums/bbno$/bbno$/cover.png"
+      data={{
+        width: 300,
+        height: 300,
+        author: "bbno$",
+        purpose: "to serve as the primary means of visual identification at the top of the page dedicated to *bbno$.",
+        notReplaceableBecause: "Any derivative work based upon the cover art would be a copyright violation, so creation of a free image is not possible.",
+        minimalUse: "Top of the page for *bbno$*.",
+        respectForCommercial: "The use of a low resolution image of a work's cover will not impact the commercial viability of the work.",
+        added: "October 25th, 2025",
+      }}
+    />
   </div>
 </MainLayout>
