@@ -34,9 +34,9 @@ const colorMap = {
 };
 
 // @ts-ignore
-const dashTransCls = `rounded-full h-3 flex-1 ${transColorMap[type]}`;
+const dashTransCls = `rounded-full ${transColorMap[type]} flex-1`;
 // @ts-ignore
-const dashCls = `rounded-full h-3 ${colorMap[type]}`;
+const dashCls = `rounded-full ${colorMap[type]}`;
 ---
 
 <div class="space-y-1">
@@ -56,28 +56,11 @@ const dashCls = `rounded-full h-3 ${colorMap[type]}`;
     </div>
     <p class="text-white/50 font-mono">{duration}</p>
   </div>
-  <div class="flex gap-2 items-center">
-    <p class="font-mono w-16">{rating}/10</p>
-    {
-      [...Array(10)].map((_, index) => {
-        const segmentValue = index + 1;
-
-        let fillWidth = "width: 0%";
-
-        if (rating >= segmentValue) {
-          fillWidth = "width: 100%";
-        } else if (rating > index && rating < segmentValue) {
-          const partialFill = rating - index;
-
-          fillWidth = `width: ${partialFill * 100}%`;
-        }
-
-        return (
-          <div key={index} class={dashTransCls}>
-            <div class={dashCls} style={fillWidth} />
-          </div>
-        );
-      })
-    }
+  <div class={dashTransCls}>
+    <div class={dashCls} style={`width: ${rating * 10}%`}>
+      <p class="font-mono font-bold text-center text-sm" style={`color: ${color};`}>
+        {rating}/10
+      </p>
+    </div>
   </div>
 </div>
