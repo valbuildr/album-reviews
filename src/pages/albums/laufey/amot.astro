@@ -12,6 +12,7 @@ import Rating from "../../../components/Rating.astro";
 <MainLayout
   title={`${album.meta.shortName ?? album.meta.name} by ${album.meta.artists[0]}`}
   {...album.meta.colorOverrides}
+  favicon={album.meta.faviconOverride}
 >
   <div class="flex gap-2 mb-2">
     <a class="text-blue-800 dark:text-blue-300 hover:underline" href="/">Home</a

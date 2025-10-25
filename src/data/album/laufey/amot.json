@@ -20,7 +20,8 @@
         "textColor": "#FFFFFF",
         "released": "August 22, 2025",
         "hasInterludes": true,
-        "hasBonuses": true
+        "hasBonuses": true,
+        "faviconOverride": "/assets/favicons/laufey_amot.svg"
     },
     "thoughts": {
         "published": "October 24, 2025",
