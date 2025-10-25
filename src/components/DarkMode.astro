@@ -1,0 +1,52 @@
+<select
+  id="colorselector"
+  class="border border-black/50 dark:border-white/50 py-1.5 px-2 rounded-lg transition-all duration-300 text-md"
+>
+  <option class="text-black" value="sys" selected>System</option>
+  <option class="text-black" value="light">Light</option>
+  <option class="text-black" value="dark">Dark</option>
+</select>
+
+<script is:inline>
+  const mode = localStorage.getItem("color-mode");
+
+  if (mode == "dark") {
+    document.body.classList.add("dark");
+  } else if (mode == "light") {
+    document.body.classList.remove("dark");
+  } else {
+    const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (dark) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const menu = document.getElementById("colorselector");
+
+    menu.addEventListener("change", () => {
+      if (menu.value == "dark") {
+        document.body.classList.add("dark");
+
+        localStorage.setItem("color-mode", "dark");
+      } else if (menu.value == "light") {
+        document.body.classList.remove("dark");
+
+        localStorage.setItem("color-mode", "light");
+      } else {
+        const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        if (dark) {
+          document.body.classList.add("dark");
+        } else {
+          document.body.classList.remove("dark");
+        }
+
+        localStorage.removeItem("color-mode");
+      }
+    });
+  });
+</script>

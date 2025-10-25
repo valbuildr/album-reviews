@@ -1,0 +1,83 @@
+---
+interface Props {
+  name: string;
+  color: string;
+  rating: number;
+  duration: string;
+  explicit?: boolean;
+  type?: "default" | "interlude" | "hidden-gem" | "single" | "bonus" | string;
+}
+
+const {
+  name,
+  color,
+  rating,
+  duration,
+  explicit = false,
+  type = "default",
+} = Astro.props;
+
+const transColorMap = {
+  default: "bg-light-blue/25",
+  interlude: "bg-light-purple/25",
+  "hidden-gem": "bg-light-yellow/25",
+  single: "bg-light-green/25",
+  bonus: "bg-light-red/25",
+};
+
+const colorMap = {
+  default: "bg-light-blue",
+  interlude: "bg-light-purple",
+  "hidden-gem": "bg-light-yellow",
+  single: "bg-light-green",
+  bonus: "bg-light-red",
+};
+
+// @ts-ignore
+const dashTransCls = `rounded-full h-3 flex-1 ${transColorMap[type]}`;
+// @ts-ignore
+const dashCls = `rounded-full h-3 ${colorMap[type]}`;
+---
+
+<div class="space-y-1">
+  <div class="flex justify-between items-center">
+    <div class="flex gap-2 items-center">
+      <p class="text-3xl font-medium">{name}</p>
+      {
+        explicit && (
+          <div
+            class="aspect-sqaure h-6 w-6 bg-white/50 rounded text-center font-black"
+            style={`color: ${color}`}
+          >
+            E
+          </div>
+        )
+      }
+    </div>
+    <p class="text-white/50 font-mono">{duration}</p>
+  </div>
+  <div class="flex gap-2 items-center">
+    <p class="font-mono w-16">{rating}/10</p>
+    {
+      [...Array(10)].map((_, index) => {
+        const segmentValue = index + 1;
+
+        let fillWidth = "width: 0%";
+
+        if (rating >= segmentValue) {
+          fillWidth = "width: 100%";
+        } else if (rating > index && rating < segmentValue) {
+          const partialFill = rating - index;
+
+          fillWidth = `width: ${partialFill * 100}%`;
+        }
+
+        return (
+          <div key={index} class={dashTransCls}>
+            <div class={dashCls} style={fillWidth} />
+          </div>
+        );
+      })
+    }
+  </div>
+</div>

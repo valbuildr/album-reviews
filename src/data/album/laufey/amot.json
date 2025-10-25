@@ -1,0 +1,259 @@
+{
+    "meta": {
+        "name": "A Matter of Time (Standard Edition)",
+        "shortName": "A Matter of Time",
+        "artists": [
+            "Laufey"
+        ],
+        "cover": "/assets/albums/laufey/amot/cover.png",
+        "links": {
+            "appleMusic": "https://geo.music.apple.com/us/album/_/1834263082",
+            "spotify": "https://open.spotify.com/album/5rMOCuiWWbEBcHaKM69Hmv",
+            "youtube": "https://www.youtube.com/playlist?list=OLAK5uy_lH9KaLPpmu33-coOjnLa-SYXntYF21mjM",
+            "more": "https://album.link/i/1834263082"
+        },
+        "colorOverrides": {
+            "darkBgColor": "#334655",
+            "lightBgColor": "#cce0f2"
+        },
+        "color": "#40576A",
+        "textColor": "#FFFFFF",
+        "released": "August 22, 2025",
+        "hasInterludes": true,
+        "hasBonuses": true
+    },
+    "thoughts": {
+        "published": "October 24, 2025",
+        "content": "I truly do love this album. Which is why I feel guilty about giving it a B, but to be impartial to other albums, I applied the same rules I apply to others. Laufey is truly one of my favorite artists with how she's taken a genre, that is most commonly attributed to older people and revitalized it for younger people.\n\nI love how *Forget-Me-Not* reaches into her Icelandic roots whilst staying true to her style, *Sabotage* brings an chaotic value to the album, and *Tough Luck* brings a rage-filled value that lets you just let out all of those feelings."
+    },
+    "songs": {
+        "clockwork": {
+            "name": "Clockwork",
+            "rating": 7.5,
+            "duration": "2:31",
+            "isExplicit": true,
+            "type": "default",
+            "links": {
+                "appleMusic": "",
+                "spotify": "",
+                "youtube": "",
+                "more": ""
+            },
+            "thoughts": "Instrumentally, *Clockwork* makes me think of a Christmas song, with the classic bells at the beginning with the string and piano exclusivity. It truly creates a warm feeling, fitting for a date night.",
+            "released": "August 22, 2025"
+        },
+        "lover-girl": {
+            "name": "Lover Girl",
+            "rating": 7.5,
+            "duration": "2:44",
+            "isExplicit": false,
+            "type": "single",
+            "links": {
+                "appleMusic": "",
+                "spotify": "",
+                "youtube": "",
+                "more": ""
+            },
+            "thoughts": "When I heard this song for the first time when it released as a single I was instantly in love with it. The clap breaks give it a unique experience when preformed live, which even though I couldn't see Laufey live on tour, It's beautiful to see the audience interacting.",
+            "released": "June 25, 2025"
+        },
+        "snow-white": {
+            "name": "Snow White",
+            "rating": 8,
+            "duration": "3:14",
+            "isExplicit": false,
+            "type": "single",
+            "links": {
+                "appleMusic": "",
+                "spotify": "",
+                "youtube": "",
+                "more": ""
+            },
+            "thoughts": "As a trans girl, this song hits quite close to home with the lyric \"I don't think I'm pretty, it's not up for debate.\"\n\nThe song itself is a beautiful representation of humanities high expectations of women.",
+            "released": "August 7, 2025"
+        },
+        "castle-in-hollywood": {
+            "name": "Castle in Hollywood",
+            "rating": 7.5,
+            "duration": "2:34",
+            "isExplicit": false,
+            "type": "default",
+            "links": {
+                "appleMusic": "",
+                "spotify": "",
+                "youtube": "",
+                "more": ""
+            },
+            "thoughts": "My favorite lyric of the whole album has to be \"I thought that lilies died by winter, then they bloomed again in spring.\" It truly encapsulates the heartbreak that comes with breakups.",
+            "released": "August 22, 2025"
+        },
+        "carousel": {
+            "name": "Carousel",
+            "rating": 6,
+            "duration": "2:34",
+            "isExplicit": false,
+            "type": "default",
+            "links": {
+                "appleMusic": "",
+                "spotify": "",
+                "youtube": "",
+                "more": ""
+            },
+            "thoughts": "*Carousel* is probably the weakest link of the album in my opinion. It just doesn't have as much variety as a lot of the other songs.",
+            "released": "August 22, 2025"
+        },
+        "silver-lining": {
+            "name": "Silver Lining",
+            "rating": 8,
+            "duration": "3:18",
+            "isExplicit": false,
+            "type": "single",
+            "links": {
+                "appleMusic": "",
+                "spotify": "",
+                "youtube": "",
+                "more": ""
+            },
+            "thoughts": "As with *Lover Girl*, when this single released I instantly loved it. In fact, the single version is still the version on my playlist to this day.",
+            "released": "April 3, 2025"
+        },
+        "too-little-too-late": {
+            "name": "Too Little, Too Late",
+            "rating": 9,
+            "duration": "3:54",
+            "isExplicit": true,
+            "type": "hidden-gem",
+            "links": {
+                "appleMusic": "",
+                "spotify": "",
+                "youtube": "",
+                "more": ""
+            },
+            "thoughts": "Realizing you threw someone away just because you waited a bit too long is always devastating, and this song really shows that. Plus the song was apparently written from a male perspective<sup>[[1]](#source-1)</sup>, a unique showing for Laufey.",
+            "released": "August 22, 2025"
+        },
+        "cuckoo-ballet": {
+            "name": "Cuckoo Ballet",
+            "rating": 9,
+            "duration": "3:40",
+            "isExplicit": false,
+            "type": "interlude",
+            "links": {
+                "appleMusic": "",
+                "spotify": "",
+                "youtube": "",
+                "more": ""
+            },
+            "thoughts": "Not too much to say about this, but it is a beautiful interlude.\n\nA semi-unique thing (recently) for Laufey is that she's included an interlude in almost all of her albums. (As of writing, *Everything I Know About Love* is the only album of hers to not feature an interlude.)",
+            "released": "August 22, 2025"
+        },
+        "forget-me-not": {
+            "name": "Forget-Me-Not",
+            "rating": 10,
+            "duration": "4:06",
+            "isExplicit": false,
+            "type": "hidden-gem",
+            "links": {
+                "appleMusic": "",
+                "spotify": "",
+                "youtube": "",
+                "more": ""
+            },
+            "thoughts": "A truly perfect song, with a bilingual twist. Hearing Icelandic so easily intertwined with English feels truly amazing.\n\nHidden as a love letter to a guy, it's secretly a love letter to Iceland. With a reference to a black sand beach, and the Icelandic lyrics translating to \"Don't forget me, even though I'm leaving. I love you. I'll love you forever.\"<sup>[[1]](#source-1)</sup>",
+            "released": "August 22, 2025"
+        },
+        "tough-luck": {
+            "name": "Tough Luck",
+            "rating": 8,
+            "duration": "3:13",
+            "isExplicit": true,
+            "type": "single",
+            "links": {
+                "appleMusic": "",
+                "spotify": "",
+                "youtube": "",
+                "more": ""
+            },
+            "thoughts": "*Tough Luck* is really one of those songs where you can let all of your rage out and just yell. Being snarky and so direct to the point when facing a lover who \"demoralized\" and \"effaced\" you is just beautifully written.",
+            "released": "May 15, 2025"
+        },
+        "a-cautionary-tale": {
+            "name": "A Cautionary Tale",
+            "rating": 8,
+            "duration": "3:13",
+            "isExplicit": false,
+            "type": "default",
+            "links": {
+                "appleMusic": "",
+                "spotify": "",
+                "youtube": "",
+                "more": ""
+            },
+            "thoughts": "When breaking from a draining relationship sometimes you truly wish that you could warn yourself before you got yourself into it. But, you can't change the past so you try to change the future. That's what this song is, a warning to an insecure and jealous lover's future partners.",
+            "released": "August 22, 2025"
+        },
+        "mr-eclectic": {
+            "name": "Mr. Eclectic",
+            "rating": 8,
+            "duration": "2:35",
+            "isExplicit": false,
+            "type": "default",
+            "links": {
+                "appleMusic": "",
+                "spotify": "",
+                "youtube": "",
+                "more": ""
+            },
+            "thoughts": "A performative's nightmare. Realizing you're talking to \"the very expert\" on the things you're talking about when you only know surface level knowledge, in an attempt to \"woo and win [a partner] over.\"",
+            "released": "August 22, 2025"
+        },
+        "clean-air": {
+            "name": "Clean Air",
+            "rating": 9,
+            "duration": "2:35",
+            "isExplicit": false,
+            "type": "default",
+            "links": {
+                "appleMusic": "",
+                "spotify": "",
+                "youtube": "",
+                "more": ""
+            },
+            "thoughts": "A bit of a change by starting out with a guitar instead of pianos and other strings. With the possible reference to Lovesick with the lyric \"get the fuck out of my atmosphere,\" truly makes the song one of the best on the album.",
+            "released": "August 22, 2025"
+        },
+        "sabotage": {
+            "name": "Sabotage",
+            "rating": 9,
+            "duration": "2:35",
+            "isExplicit": false,
+            "type": "default",
+            "links": {
+                "appleMusic": "",
+                "spotify": "",
+                "youtube": "",
+                "more": ""
+            },
+            "thoughts": "Jumpscares are always funny when seeing reactions but when you're the one jumpscared, then it's not that funny. This song goes from 0 to 60 in a matter of seconds, creating a chaotic mess. (which isn't a bad thing at all)",
+            "released": "August 22, 2025"
+        },
+        "seems-like-old-times": {
+            "name": "Seems Like Old Times",
+            "rating": 7,
+            "duration": "2:59",
+            "isExplicit": false,
+            "type": "bonus",
+            "links": {
+                "appleMusic": "",
+                "spotify": "",
+                "youtube": "",
+                "more": ""
+            },
+            "thoughts": "A beautiful rendition of a classic.",
+            "released": "August 24, 2025"
+        }
+    },
+    "credits": {
+        "1": "Sourced from [Rolling Stone](https://www.rollingstone.com/music/music-features/laufey-a-matter-of-time-new-album-interview-1235398636/.). (Subscription may be required, [archive.is](https://archive.is/20250807211902/https://www.rollingstone.com/music/music-features/laufey-a-matter-of-time-new-album-interview-1235398636/) has a non-paywalled version.)"
+    }
+}

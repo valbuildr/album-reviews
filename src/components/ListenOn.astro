@@ -1,0 +1,17 @@
+---
+interface Props {
+  platform: "applemusic" | "moreplatforms" | "spotify" | "youtube";
+  href: string;
+  hideOnSm?: boolean;
+}
+
+const { platform, href, hideOnSm = false } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  class={`hover:scale-105 transition-transform duration-150 ${hideOnSm ? "hidden sm:block" : ""}`}
+>
+  <img src={`/assets/listenon/${platform}.svg`} class="w-fit rounded-lg sm:h-6" />
+</a>

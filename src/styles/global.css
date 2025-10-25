@@ -1,1 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: Inter, Arial, Helvetica, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Google Sans Code", monospaced;
+
+  --color-light-blue: rgb(140, 202, 255);
+  --color-light-green: rgb(140, 255, 157);
+  --color-light-yellow: rgb(255, 224, 110);
+  --color-light-purple: rgb(192, 140, 255);
+  --color-light-red: rgb(255, 140, 140);
+}
+
+.markdown-content a {
+  @apply hover:underline;
+}

@@ -1,7 +1,35 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import albums from "../data/albums.json";
 ---
 
 <MainLayout title="Home">
-  <h1>Astro</h1>
+  <div class="flex gap-3 mb-2">
+    <p class="font-bold">Home</p>
+  </div>
+
+  <div class="sm:grid sm:grid-cols-4 sm:gap-4 space-y-4">
+    {
+      albums.map((album) => {
+        return (
+          !album.draft && (
+            <a
+              class="block aspect-square bg-zinc-300 rounded-lg bg-cover"
+              style={`background-image: url("/assets/albums/${album.artistId}/${album.albumId}/cover.png")`}
+              href={album.href}
+            >
+              <div class="w-full h-full rounded-lg bg-gradient-to-b from-black/0 to-black/50 flex items-end p-4">
+                <div>
+                  <h2 class="font-bold text-3xl text-white">
+                    {album.albumName}
+                  </h2>
+                  <p class="text-white">{album.artistName}</p>
+                </div>
+              </div>
+            </a>
+          )
+        );
+      })
+    }
+  </div>
 </MainLayout>

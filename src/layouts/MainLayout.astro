@@ -1,17 +1,165 @@
 ---
-const { title } = Astro.props;
+interface Props {
+  title: string;
+  darkBgColor?: string;
+  darkTextColor?: string;
+  lightBgColor?: string;
+  lightTextColor?: string;
+  favicon?: string;
+}
+
+const {
+  title,
+  darkBgColor = "var(--color-zinc-900)",
+  darkTextColor = "var(--color-white)",
+  lightBgColor = "var(--color-white)",
+  lightTextColor = "var(--color-black)",
+  favicon = "/favicons/default.svg",
+} = Astro.props;
+import DarkMode from "../components/DarkMode.astro";
 import "../styles/global.css";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title} - Valentine's Album Reviews</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href={favicon} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - Val's Album Reviews</title>
+  </head>
+  <body
+    style={{
+      "--dark-bg": darkBgColor,
+      "--dark-text": darkTextColor,
+      "--light-bg": lightBgColor,
+      "--light-text": lightTextColor,
+    }}
+    class="transition-colors duration-300 bg-[var(--light-bg)] text-[var(--light-text)] dark:bg-[var(--dark-bg)] dark:text-[var(--dark-text)]"
+  >
+    <div
+      class="backdrop-blur-lg border-b border-zinc-500 fixed top-0 w-screen transition-all duration-300"
+      id="nav-bar"
+    >
+      <div class="container mx-auto p-4 sm:flex sm:justify-between sm:items-center space-y-2 sm:space-y-0">
+        <p class="font-bold text-3xl transition-all duration-300" id="nav-logo">
+          <a href="/">Val's Album Reviews</a>
+        </p>
+        <DarkMode />
+      </div>
+    </div>
+
+    <div class="pt-32 sm:pt-16 min-h-screen">
+      <div class="container mx-auto p-4">
+        <slot />
+      </div>
+    </div>
+
+    <div class="border-t-2 border-zinc-500">
+      <div
+        class="container mx-auto py-8 sm:flex sm:justify-between sm:items-end space-y-8 sm:space-y-0 p-4"
+      >
+        <div>
+          <p>Made with ❤️ by</p>
+          <div class="flex items-end mb-2">
+            <p class="text-4xl font-bold hover:underline">
+              <a href="https://valbuilds.xyz">valbuildr </a>
+            </p>
+            <p class="font-regular text-md ml-2">(she/they)</p>
+          </div>
+          <p class="mb-2">
+            All opinions expressed on this website are those of my own.
+          </p>
+          <p>
+            This website may use content that is copyrighted by third parties
+            but is used as part of criticism and review and therefore subject to
+            the fair use exeception under 17 U.S.C. § 107. I, valbuildr, make no
+            claims to any third pary content used on this website and no
+            infringement is intended. If you are the owner of a copyrighted work
+            featured on this website and wish for it to be removed, please <a
+              href="/legal/copyright"
+              class="hover:underline">get in touch</a
+            >.
+          </p>
+        </div>
+        <div class="sm:justify-items-end">
+          <p
+            class="text-black/75 hover:text-black dark:text-white/50 dark:hover:text-white hover:underline transition-all duration-300 w-fit"
+          >
+            <a href="https://github.com/valbuildr">Github</a>
+          </p>
+          <p
+            class="text-black/75 hover:text-black dark:text-white/50 dark:hover:text-white hover:underline transition-all duration-300 w-fit"
+          >
+            <a href="https://www.youtube.com/@valbuildr">Youtube</a>
+          </p>
+          <p
+            class="text-black/75 hover:text-black dark:text-white/50 dark:hover:text-white hover:underline transition-all duration-300 w-fit"
+          >
+            <a href="https://bsky.app/valbuilds.xyz">Bluesky</a>
+          </p>
+          <p
+            class="text-black/75 hover:text-black dark:text-white/50 dark:hover:text-white hover:underline transition-all duration-300 w-fit"
+          >
+            <a href="https://wetdry.world/@valbuildr">Mastodon</a>
+          </p>
+          <p
+            class="text-black/75 hover:text-black dark:text-white/50 dark:hover:text-white hover:underline transition-all duration-300 w-fit"
+          >
+            <a href="https://discord.gg/UKVMvUG2h9">Discord</a>
+          </p>
+          <p
+            class="text-black/75 hover:text-black dark:text-white/50 dark:hover:text-white hover:underline transition-all duration-300 w-fit"
+          >
+            <a href="https://www.tiktok.com/@valbuildr">TikTok</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", () => {
+        const elements = [
+          {
+            element: document.getElementById("nav-logo"),
+            classes: {
+              lg: ["text-3xl"],
+              sm: ["text-xl"],
+            },
+          },
+          {
+            element: document.getElementById("nav-bar"),
+            classes: {
+              lg: ["bg-black/0"],
+              sm: ["bg-black/50", "text-white"]
+            }
+          },
+          {
+            element: document.getElementById("colorselector"),
+            classes: {
+              lg: ["border-black/50", "text-md"],
+              sm: ["border-white/50", "text-sm"]
+            }
+          }
+        ];
+
+        const updateNavbar = () => {
+          if (window.scrollY > 50) {
+            for (const elm of elements) {
+              elm.element.classList.remove(...elm.classes.lg);
+              elm.element.classList.add(...elm.classes.sm);
+            }
+          } else {
+            for (const elm of elements) {
+              elm.element.classList.remove(...elm.classes.sm);
+              elm.element.classList.add(...elm.classes.lg);
+            }
+          }
+        };
+
+        updateNavbar();
+        window.addEventListener("scroll", updateNavbar);
+      });
+    </script>
+  </body>
 </html>

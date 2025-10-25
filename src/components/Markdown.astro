@@ -1,0 +1,20 @@
+---
+import MarkdownIt from "markdown-it";
+
+interface Props {
+  content: string;
+}
+
+const { content } = Astro.props;
+
+const md = new MarkdownIt({
+  html: true,
+  linkify: true,
+});
+
+const htmlOutput = md.render(content);
+---
+
+<div class="markdown-content inline-block">
+  <Fragment set:html={htmlOutput} />
+</div>
