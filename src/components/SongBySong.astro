@@ -43,7 +43,7 @@ const cls = `w-full h-full text-white p-4 rounded-t-2xl h-fit space-y-2 text-lg 
 ---
 
 <div
-  class={`border-2 border-white ${isStart ? "rounded-t-2xl" : ""} ${isEnd ? "rounded-b-2xl" : ""} h-fit space-y-2 text-lg`}
+  class={`border-x-2 ${isStart ? "border-b-1 border-t-2" : ""} ${isEnd ? "border-t-1 border-b-2" : ""} ${(!isStart && !isEnd) ? "border-y-1" : ""} border-white ${isStart ? "rounded-t-2xl" : ""} ${isEnd ? "rounded-b-2xl" : ""} h-fit space-y-2 text-lg`}
   style={`background-color: ${color}; color: ${textColor}`}
   id={`sbs-${id}`}
 >
